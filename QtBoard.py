@@ -41,6 +41,8 @@ class QtBoard:
             to_file = chr(97 + col)
             to_rank = 8 - row
             uci = from_file + str(from_rank) + to_file + str(to_rank)
+            if to_rank == 8 and self.chess_board.piece_type_at(chess.square(self.selected[1], 7-self.selected[0])) == chess.PAWN:
+                uci = uci + "q"
             #print("Trying " + uci)
 
             try:
